@@ -1,7 +1,9 @@
 \section{Ethereum}
 \subsection{ERC-20}
 Token contract keeps track of fungible tokens.
-Can be used as vault for NFTs
+Can be used as vault for NFTs.
+The ERC-20 token standard supported the implementation of a standard API or Application Programming Interface for tokens in smart contracts. 
+So, ERC20 serves as a standard protocol for the Ethereum blockchain and enables users to share, exchanging or transfer tokens.
 
 \subsubsection{Code Functions}
 \paragraph{Mandatory}
@@ -133,7 +135,11 @@ Miner can influence the random value in a sense.
   }
   function luckyTransfer() private {
     if(block.number != previousTransferBlockNr && (block.number - previousTransferBlockNr) < 256 ) {
-      uint256 rnd = uint256(keccak256(block.blockhash(previousTransferBlockNr)));
+      uint256 rnd = uint256(
+        keccak256(
+          block.blockhash(previousTransferBlockNr)
+        )
+      );
       if(rnd % 200 == 0) { //.5%
         balances[previousTransferAddress] += pot;
         Emit Transfer(this, previousTransferAddress, pot);
@@ -147,8 +153,14 @@ Miner can influence the random value in a sense.
 \end{lstlisting}
 
 
+
+
 \subsection{ERC-721}
 There is either one NFT or there are none.
+The standards in ERC-721 tokens focus on critical aspects for deciding ownership and approaches for the creation of tokens.
+The standards also dictate the approaches for destroying and transferring the tokens. 
+
+
 \paragraph{Pros}
 \begin{itemize}
   \item Trade items without middleman
@@ -217,10 +229,14 @@ Make NFT discoverable
   #import interface instead of all functions
   // SPDX-License-Identifier: MIT
   pragma solidity ^0.8.9;
-  import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
-  import "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol";
+  import "@openzeppelin/IERC721.sol";
+  import "@openzeppelin/IERC721Metadata.sol";
 
   contract BlChNFT is IERC721 {
     
   }
 \end{lstlisting}
+
+\section {ERC20 vs. ERC721}
+
+\includegraphics[width=\linewidth]{erc-difference.jpg}

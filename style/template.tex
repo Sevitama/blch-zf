@@ -118,3 +118,15 @@
 
 % include lorem ipsum
 \usepackage{lipsum}
+
+\makeatletter %TODO uncomment to enable linebreak after paragraph
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+{-3.25ex\@plus -1ex \@minus -.2ex}%
+{1.5ex \@plus .2ex}%
+{\normalfont\normalsize\sffamily}}
+
+\renewcommand\subparagraph{\@startsection{subparagraph}{4}{\z@}%
+{-3.25ex\@plus -1ex \@minus -.2ex}%
+{1.5ex \@plus .2ex}%
+{\normalfont\normalsize\sffamily\itshape\color{black}}}
+\makeatother
