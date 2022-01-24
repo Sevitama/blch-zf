@@ -1,0 +1,35 @@
+\section{Algorithms}
+\subsection{Bloom-Filter}
+
+\subsubsection{Variations}
+
+\paragraph{Compressed Bloom Filters}
+When the filter is intended to be passed as a message.
+False-positive rate is optimized for the compressed bloom filter (uncompressed bit vector m will be larger but sparser)
+
+\paragraph{Generalized Bloom Filter}
+Two type of hash functions gi (reset bits to 0) and hj (set bits to 1).
+Start with an arbitrary vector (bits can be either 0 or 1).
+In case of collisions between gi and hj, bit is reset to 0.
+Store more info with low false positive.
+Produces either false positives or false negatives.
+
+\paragraph{Counting Bloom Filters}
+Entry in the filter not be a single bit but a counter.
+Delete operation possible (decrementing counter).
+
+\paragraph{Scalable Bloom Filter}
+Adapt dynamically to number of elements, consist of regular Bloom filters
+A SBF is made up of a series of one or more (plain) Bloom Filters;
+when filters get full due to the limit on the fill ratio, a new one is added; querying is made by testing for the presence in each filter.
+
+\subsubsection{Usage}
+Fast search.
+Check if username is taken: Check bloom filter instead of query database.
+
+\subsection{Merkle Tree}
+A Merkle tree is a binary hash tree containing leaf nodes.
+Constructed bottom-up.
+Used to summarize all transactions in a block.
+To prove that a specific transaction is included in a block, a node only needs to produce hashes, constituting a merkle path connecting the specific transaction to the root of the tree.
+
