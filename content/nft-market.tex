@@ -1,0 +1,17 @@
+\section{NFT Market}
+\subsection{Ablauf}
+\begin{enumerate}
+  \item Jemand erstellt eine Offerte an den Besitzer eines NFT Tokens.
+  \item Er überweist bereits die offerierten Ethers an den Contract.
+  \item Der Besitzer des Tokens kann die Offerte annehmen oder ablehnen.
+  \begin{itemize}
+    \item Wenn er die Offerte annimmt, bekommt er vom Contract die Ethers, welche vom Ersteller der Offerte überwiesen werden.
+    \item Lehnt er die Offerte ab, bekommt der Ersteller der Offerte die Ethers wieder zurück
+  \end{itemize} 
+\end{enumerate}
+
+\subsection{Code}
+\subsubsection{Store offers}
+\begin{lstlisting}
+  mapping(address => mapping(uint256 => mapping(address => uint256))) private _offers;
+\end{lstlisting}
